@@ -1,0 +1,25 @@
+{
+  "name": "dz-1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "nodemon": "2.0.13"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "start:dev": "nodemon ./index.js localhost 5000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IgnatevD/-nodejs.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IgnatevD/-nodejs/issues"
+  },
+  "homepage": "https://github.com/IgnatevD/-nodejs#readme"
+}
