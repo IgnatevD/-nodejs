@@ -1,34 +1,34 @@
 /** @format */
 
-const http = require("http");
-const PORT = 5000;
-const server = http.createServer((req, res) => {
-  console.log("req", req);
-  console.log("res", res);
-});
+const contacts = require("./contacts");
+const { program } = require("commander");
 
-server.listen(PORT, () => console.log("Server 5000", PORT));
+program
+  .option("--a --action <action>", "action")
+  .option("--id <action>", "id")
+  .option("--name <action>", "name")
+  .option("--email <action>", "email")
+  .option("--phone <action>", "phone");
 
-// index.js
-const argv = require("yargs").argv;
+program.parse(process.argv);
+const argv = program.opts();
 
-// TODO: рефакторить
 function invokeAction({ action, id, name, email, phone }) {
   switch (action) {
     case "list":
-      // ...
+      contacts.listContacts().then(console.table);
       break;
 
     case "get":
-      // ... id
+      contacts.getContactById(Number(id)).then(console.table);
       break;
 
     case "add":
-      // ... name email phone
+      contacts.addContact(name, email, phone).then(console.table);
       break;
 
     case "remove":
-      // ... id
+      contacts.removeContact(Number(id)).then(console.table);
       break;
 
     default:
